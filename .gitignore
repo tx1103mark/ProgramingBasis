@@ -1,3 +1,8 @@
-LeetCode/src/LeetCode-Java-master/*
-LeetCode/src/LeetCode-master/*
-
+LeetCode-Java-master/
+LeetCode-master/
+.classpath
+.settings/
+.loadpath
+.project
+.metdata
+bin/
