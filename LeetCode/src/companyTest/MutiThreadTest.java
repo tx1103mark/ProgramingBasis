@@ -1,16 +1,24 @@
 package companyTest;
 
+
 public class MutiThreadTest {
-	
+	static String result="";
 	  public static void main(String[] args) { 
-	       MutiThreadTest inc = new MutiThreadTest(); 
-	       int i = 0; 
-	       inc.fermin(i); 
-	       i++; 
-	       System.out.println(i);
-	    
+	  Method(1);
+	  Method(0);
+	  System.out.println(result);
 	    } 
-	    void fermin(int i){ 
-	       i++; 
-	    } 
+	  static void Method(int i){
+		  try {
+			if(i==1)
+				throw new Exception();
+		} catch (Exception e) {
+			// TODO: handle exception
+			result+="2";
+			return;
+		}finally{
+			result+="3";
+		}
+		  result+="4";
+	  }
 }
