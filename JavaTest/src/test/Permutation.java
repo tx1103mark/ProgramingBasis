@@ -1,5 +1,7 @@
 package test;
 
+import java.util.HashSet;
+
 public class Permutation {
 	
 	static int count=0;
@@ -32,6 +34,7 @@ public class Permutation {
 	}
 	
 	public static void main(String[] args) {
+		
 		
 		Permutation per=new Permutation();
 		per.FullSort("abcde");
