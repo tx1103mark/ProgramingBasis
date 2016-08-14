@@ -30,13 +30,21 @@ public class Solution61 {
 		     ListNode next;
 		     ListNode(int x) { val = x; }}
 	  public ListNode rotateRight(ListNode head, int k) {
-	        ListNode slow=head;
-	        ListNode fast=head;
-	        for(int i=0;i<k&&fast!=null;i++){
-	        	fast=fast.next;
+		  if (head == null) return head;
+	        int n = 1;
+	        ListNode tail = head, cur = head;
+	        while (tail.next != null) {
+	            tail = tail.next;
+	            ++n;
 	        }
-	        if(fast==null)
-	        	return null;
+	        k = k % n;
+	        if (k == 0) return head;
+	        for (int i = 0; i < n - k - 1; ++i) 
+	            cur = cur.next;
+	        ListNode newHead = cur.next;
+	        tail.next = head;
+	        cur.next = null;
+	        return newHead;
 	    }
 	 
 }
