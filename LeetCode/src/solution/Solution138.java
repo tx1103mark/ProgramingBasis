@@ -24,12 +24,14 @@ Subscribe to see which companies asked this question
 
 public class Solution138 {
 	class RandomListNode {
-		     int label;
+		    private  int label;
 		     RandomListNode next, random;
 		     RandomListNode(int x) { this.label = x; }}
 	  
 	  public RandomListNode copyRandomList(RandomListNode head) {
-	        
+	        RandomListNode node=new RandomListNode(1);
+	        System.out.println(node.label);
+	        return node;
 	    }
 }
 

@@ -79,13 +79,59 @@ public class QuickSort {
 		}
 	}
 	
+	//原地排序版本partion函数
+	public int partion4(int[] a,int left,int right){
+		int base=a[right];
+		int j=0;//指向小的
+		for(int i=0;i<right-1;i++){
+				if(a[i]<=base){
+					swap(a,i,j);
+					j++;
+				}
+		swap(a,j,right);
+		}
+		return j;
+	}
+	//递归版本
+	public void quickSortRecurive(int[]a ,int start,int end){
+		if(start>=end)
+			return;
+		int mid=a[end];
+		int left=start,right=end;
+		while(left<right){
+			while(left<right&&a[left]<mid)
+					left++;
+			while(left<right&&a[right]>=mid)
+				right--;
+			swap(a,left,right);
+		}
+		if(a[left]>=a[end])
+			swap(a,left,end);
+		else {
+//			swap(a,left,end);
+			left++;
+		}
+		quickSortRecurive(a, start, left-1);
+		quickSortRecurive(a, left+1, end);
+	}
 	public static void main(String[] args) {
-		int[] st={1,9,2,3,7};
+		int[] st={1,9,2,3,7,5,6,4,4,4};
 		QuickSort qs=new QuickSort();
-		qs.sort(st, 0, st.length-1);
+		qs.quickSortRecurive(st, 0, st.length-1);
 		for (int i = 0; i < st.length; i++) {
 			System.out.println(st[i]);
 		}
 	
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
