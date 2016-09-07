@@ -1,29 +1,22 @@
 package greedy;
-
+/*
+ * https://leetcode.com/problems/gas-station/
+ * 关键思路
+ * 如果从加油站A出发，最先不能达到加油站B，那么起点一定在B之后
+ */
 public class Solution134GasStation {
-	 public static int canJump(int[] nums) {
-		 if(nums.length==1)
-			 return 0;
-		 	int minstep=0;
-		 	int cur=0;
-		 	int maxReach=0;
-		 	int i=0;
-		 	while(cur<nums.length){
-		 		if(maxReach>=nums.length)
-	 				break;
-		 		while(i<=cur){
-		 			maxReach=Math.max(maxReach,nums[i]+i);
-		 			i++;
-		 			if(maxReach>=nums.length)
-		 				break;
-		 		}
-		 		minstep++;
-		 		cur=maxReach;
-		 	}
-		 	return minstep;
-	 }
-	 public static void main(String[] args) {
-		int[] nums={2,3,1,1,4};
-		System.out.println(canJump(nums));
-	}
+	 public int canCompleteCircuit(int[] gas, int[] cost) {
+	        int sum=0;
+	        int start=0;
+	        int total=0;
+	        for(int i=0;i<gas.length;i++){
+	        	sum+=gas[i]-cost[i];
+	        	if(sum<0){
+	        		start=i+1;
+	        		sum=0;
+	        	}
+	        	total+=sum;
+	        }
+	        return total>0?start:-1;
+	    }
 }
